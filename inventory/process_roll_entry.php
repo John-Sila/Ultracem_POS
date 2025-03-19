@@ -66,17 +66,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         // Collect selected features as a comma-separated string
         $features = [];
-        $featureKeys = [
-            'lamination_feature', 'gussette_feature', 'printing_feature',
-        ];
 
-        foreach ($featureKeys as $key) {
-            if (isset($_POST[$key])) {
-                $features[] = $_POST[$key];
-            }
-        }
-        $featuresString = empty($features) ? null : implode(', ', $features);
+        if (isset($_POST['gussette_feature'])) $features[] = "Gussetted";
+        if (isset($_POST['lamination_feature'])) $features[] = "Laminated";
+        if (isset($_POST['printing_feature'])) $features[] = "Printed";
 
+        // Convert array to a comma-separated string
+        $featuresString = implode(", ", $features);
         // Prepare SQL query
         $stmt = $pdo->prepare("INSERT INTO rolls (width, length, weight, color, unit_meter_weight, cost_per_kg, features, price, date_added, last_modified)
                                VALUES (:width, :length, :weight, :color, :unit_meter_weight, :cost_per_kg, :features, :price, NOW(), NOW())");

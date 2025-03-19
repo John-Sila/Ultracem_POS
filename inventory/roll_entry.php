@@ -36,7 +36,16 @@ if (!in_array("items_and_inventory", $_SESSION['permissions'])) {
                     const element = inputs[i];
                     element.value = "";  
                 }
+                uncheckCheckBoxes();
             }
+
+            function uncheckCheckBoxes() {
+                const checkboxlist = document.querySelectorAll('input[type=checkbox]');
+                for (let i = 0; i < checkboxlist.length; i++) {
+                    const element = checkboxlist[i];
+                    element.checked = false;
+                }
+        }
 
             function rollIsPanelClicked(event) {
                 var checkbox = event.target;

@@ -32,6 +32,18 @@ $bags = $stmt->fetchAll(PDO::FETCH_ASSOC);
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bags Entry</title>
     <script>
+
+        function bodyLoaded() {
+            uncheckCheckBoxes();
+        }
+        function uncheckCheckBoxes() {
+            const checkboxlist = document.querySelectorAll('input[type=checkbox]');
+            for (let i = 0; i < checkboxlist.length; i++) {
+                const element = checkboxlist[i];
+                element.checked = false;
+            }
+        }
+
         function selectBagRow(event) {
             var checkbox = event.target;
             const thisNumInput = checkbox.closest("tr").querySelectorAll(".amountToUpdate")[0];
@@ -135,6 +147,7 @@ $bags = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
             return false;
         }
+        
         function updateBag(event) {
                 let row = event.target.closest("tr");
                 let bagId = row.querySelectorAll(".hideThis")[0].value;

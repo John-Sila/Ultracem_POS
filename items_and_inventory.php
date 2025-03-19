@@ -42,6 +42,7 @@ if (!in_array("items_and_inventory", $_SESSION['permissions'])) {
                     <a href="">Customer Transaction Inquiry</a>
                 </div>
                 <div class="rightDiv">
+                    <a href="dash.php?page=inventory/items">Items</a>
                     <a href="">Inventory Reports</a>
                 </div>
             </div>
@@ -50,7 +51,6 @@ if (!in_array("items_and_inventory", $_SESSION['permissions'])) {
             <h3>Inquiries & Reports</h3>
             <div class="innerDiv">
                 <div class="leftDiv">
-                    <a href="dash.php?page=inventory/items">Items</a>
                     <a href="dash.php?page=inventory/bags_registry">Bags Registry</a>
                     <a href="dash.php?page=inventory/bags_entry">Bags Entry</a>
                 </div>

@@ -882,6 +882,76 @@ body{
     }
 }
 
+.rollConvMainDiv {
+    padding: 1em;
+    
+    h1{
+        background-color: var(--blue-one);
+        padding: .5em;
+        color: var(--white);
+    }
+    
+    form{
+        background-color: var(--white);
+        padding: 1em;
+
+        table{
+            width: 100%;
+
+            tr{
+                
+                td{
+                    padding: .5em;
+
+                    input, select{
+                        border: 1px solid var(--grayer);
+                        border-radius: .625em;
+                        padding: .5em;
+                        font-family: inherit;
+                        box-sizing: border-box;
+                    }
+
+                    .flexer{
+                        display: flex;
+                        flex-direction: row;
+
+                        .makeYellow {
+                            color: var(--warn);
+                            background-color: var(--blue-one);
+                            padding: .625em;
+                            border-radius: 1em;
+                            margin-left: 1em;
+                        }
+                    }
+
+
+                }
+
+                button{
+                    background-color: var(--blue-one);
+                    margin: 1em;
+                    color: var(--white);
+                    border: none;
+                    outline: none;
+                    padding: 1em;
+                    border-radius: .5em;
+                    font-family: inherit;
+                }
+                button:hover {
+                    opacity: .875;
+                }
+            }
+            tr:nth-child(odd) {
+                background-color: var(--grayer);
+            }
+
+
+        }
+
+
+    }
+}
+
 .rollsEntryMainDiv{
     padding: 1em;
 

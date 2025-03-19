@@ -33,6 +33,8 @@ if (!in_array("items_and_inventory", $_SESSION['permissions'])) {
                     const element = inputs[i];
                     element.value = "";  
                 }
+
+                uncheckCheckBoxes();
             }
 
             function bagIsPanelClicked(event) {
@@ -79,6 +81,13 @@ if (!in_array("items_and_inventory", $_SESSION['permissions'])) {
                 });
             }
 
+            function uncheckCheckBoxes() {
+                const checkboxlist = document.querySelectorAll('input[type=checkbox]');
+                for (let i = 0; i < checkboxlist.length; i++) {
+                    const element = checkboxlist[i];
+                    element.checked = false;
+                }
+            }
         </script>
     </head>
 
@@ -134,43 +143,43 @@ if (!in_array("items_and_inventory", $_SESSION['permissions'])) {
                                     <tbody>
                                         <tr>
                                             <td>
-                                                <input type="checkbox" name="features[]" id="gussette_feature" value="Gussetted">
+                                                <input type="checkbox" name="gussette_feature" id="gussette_feature" value="Gussetted">
                                             </td>
                                             <td><label for="gussette_feature">Gussetted</label></td>
                                         </tr>
                                         <tr>
                                             <td>
-                                                <input type="checkbox" name="features[]" id="handles_feature" value="Handles">
+                                                <input type="checkbox" name="handles_feature" id="handles_feature" value="Handles">
                                             </td>
                                             <td><label for="handles_feature">Handles</label></td>
                                         </tr>
                                         <tr>
                                             <td>
-                                                <input type="checkbox" name="features[]" id="hemming_feature" value="Hemmed">
+                                                <input type="checkbox" name="hemming_feature" id="hemming_feature" value="Hemmed">
                                             </td>
                                             <td><label for="hemming_feature">Hemmed</label></td>
                                         </tr>
                                         <tr>
                                             <td>
-                                                <input type="checkbox" name="features[]" id="lamination_feature" value="Laminated">
+                                                <input type="checkbox" name="lamination_feature" id="lamination_feature" value="Laminated">
                                             </td>
                                             <td><label for="lamination_feature">Laminated</label></td>
                                         </tr>
                                         <tr>
                                             <td>
-                                                <input type="checkbox" name="features[]" id="lining_feature" value="Lined">
+                                                <input type="checkbox" name="lining_feature" id="lining_feature" value="Lined">
                                             </td>
                                             <td><label for="lining_feature">Lined</label></td>
                                         </tr>
                                         <tr>
                                             <td>
-                                                <input type="checkbox" name="features[]" id="printing_feature" value="Printed">
+                                                <input type="checkbox" name="printing_feature" id="printing_feature" value="Printed">
                                             </td>
                                             <td><label for="printing_feature">Printed</label></td>
                                         </tr>
                                         <tr>
                                             <td>
-                                                <input type="checkbox" name="features[]" id="punch_hole_feature" value="Punch Hole">
+                                                <input type="checkbox" name="punch_hole_feature" id="punch_hole_feature" value="Punch Hole">
                                             </td>
                                             <td><label for="punch_hole_feature">Punched</label></td>
                                         </tr>

@@ -52,30 +52,24 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $color = $bagColor1;
         }
 
-        // deal with the features
+        $features = [];
+
+        if (isset($_POST['gussette_feature'])) $features[] = "Gussetted";
+        if (isset($_POST['handles_feature'])) $features[] = "Handles";
+        if (isset($_POST['hemming_feature'])) $features[] = "Hemmed";
+        if (isset($_POST['lamination_feature'])) $features[] = "Laminated";
+        if (isset($_POST['lining_feature'])) $features[] = "Lined";
+        if (isset($_POST['printing_feature'])) $features[] = "Printed";
+        if (isset($_POST['punch_hole_feature'])) $features[] = "Punched";
+
+        // Convert array to a comma-separated string
+        $featuresString = implode(", ", $features);
+
+        // die($featuresString); // This will correctly output "Gussetted Handles" when both are checked
 
 
 
 
-
-        
-        if (isset($_POST['features']) && is_array($_POST['features'])) {
-            // Clean out any accidental empty values
-            $features = array_filter($_POST['features']);
-    
-            // Combine into a string if needed
-            $featuresString = implode(', ', $features);
-    
-            // Debug to see the values
-            var_dump($features); // Array of selected features
-            die($featuresString); // String like: "Gussetted, Handles"
-        } else {
-            // No features selected
-            $features = [];
-            $featuresString = null;
-    
-            die('No features selected');
-        }
 
         // Set default values for amount and last_updated
         $amount = 0;

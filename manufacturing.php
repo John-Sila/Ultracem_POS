@@ -6,21 +6,12 @@ if (!isset($_SESSION['username'])) {
 
 $current_page = isset($_GET['page']) ?? $_GET['page']; // Default to 'sales' if not set
 
-// echo "<pre>";
-// echo ($current_page);
-// echo "</pre>";
-// echo "<pre>";
-// print_r($_SESSION['permissions']);
-// echo "</pre>";
-
 // Check if permissions are set
 if (!isset($_SESSION['permissions']) || !is_array($_SESSION['permissions'])) {
     // If no permissions are found, redirect to sales page
     header("Location: dash.php?page=uc_logout");
     exit();
 }
-// echo "<script>alert('" . addslashes($current_page) . "');</script>";
-
 // Check if the user has permission for this page
 if (!in_array("manufacturing", $_SESSION['permissions'])) {
     // If no permission, redirect to sales page
@@ -45,7 +36,9 @@ if (!in_array("manufacturing", $_SESSION['permissions'])) {
                 <div class="leftDiv">
                     <a href="">Outstanding Work Orders</a>
                 </div>
-                <div class="rightDiv"></div>
+                <div class="rightDiv">
+                    <a href="dash.php?page=manufacturing/roll_processing">Rolls Processing</a>
+                </div>
             </div>
         </div>
         <div class="manufacturingDiv2">
